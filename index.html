@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Bookmarker</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- header section -->
+    <div class="container">
+        <div class="header">
+            <h2 class="text-muted py-3 my-3">Bookmarker</h2>
+        </div>
+    </div>
+    <!-- main section -->
+    <div class="container my-3 py-3 bg-light py-3 rounded-2">
+        <div class="main-container text-center">
+            <p class="fw-bolder fs-2 m-0 py-1 text-capitalize">Bookmark your favorite sites</p>
+            <label for="siteName" class="text-center fw-bolder fs-5 py-2">Site Name</label>
+                <input type="text" id="siteName" class="form-control w-75 m-auto">
+                <label for="siteLink" class="text-center fw-bolder fs-5 py-2">Site URL</label>
+                <input type="text" id="siteLink" class="form-control w-75 m-auto">
+                <button id="submit" class="btn btn-outline-primary mt-3 btn-lg">Submit</button>
+        </div>
+    </div>
+        <!-- result section -->
+        <div class="container my-3 py-3 rounded-2 bg-light">
+            <div class="result">
+                <table class="table table-striped m-auto px-2 py-2">
+                    <thead class="fs-5">
+                        <th>Bookmarke Name</th>
+                        <th>Visit</th>
+                        <th>Delete</th>
+                    </thead>
+                
+                <tbody id="tableData">
+                  
+                </tbody>
+            </table>
+            </div>
+
+        </div>
+
+   
+    <!-- fotter section -->
+
+    <div class="container">
+        <div class="fotter">
+            <p class="text-muted fw-bolder pt-3">© 2020 Bookmarker Inc.</p>
+        </div>
+    </div>
+
+    
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
