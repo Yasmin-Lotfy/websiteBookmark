@@ -26,6 +26,12 @@ table tbody a:hover{
 .delete:hover{
     background-color: rgb(167, 34, 48);
 }
+.update{
+    background-color: rgb(201, 187, 30);
+}
+.update:hover{
+    background-color: rgb(123, 114, 21);
+}
 
 tr{
     line-height:50px

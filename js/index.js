@@ -2,6 +2,10 @@ var submit = document.getElementById("submit");
 var siteName = document.getElementById("siteName")
 var siteLink = document.getElementById("siteLink")
 var allBookmarks;
+var temp;
+var mood = "Submit";
+submit.innertext = mood;
+
 
 // to display all data once refesh if the is data at local storage
 if(localStorage.getItem("books") != null){
@@ -13,14 +17,23 @@ if(localStorage.getItem("books") != null){
 
 // on click action 
 submit.addEventListener("click",function(){
-    books={
-        name:siteName.value,
-        link:siteLink.value,
+    if (mood == "Submit"){
+        books={
+            name:siteName.value,
+            link:siteLink.value,
+        }
+        allBookmarks.push(books);
+        
+    }else if(mood == "Update"){
+        allBookmarks[temp].name = siteName.value;
+        allBookmarks[temp].link = siteLink.value;
+        mood = "Submit"
+        submit.innerHTML = mood;
     }
-    allBookmarks.push(books);
     addToLocalStorage()
     displayData();
     clearData()
+   
 
 })
 //add to local storage function
@@ -36,9 +49,11 @@ function displayData(){
                     <td class="ps-3 fs-4"><i class=" text-warning pe-3 fs-6 fa-solid fa-book-bookmark"></i>${allBookmarks[i].name}</td>
                     <td >
                         <a class="visit" target="_blank" href="${allBookmarks[i].link}">
-                        Visit</a>
+                        Click Me</a>
                     </td>
                     <td ><a onclick="deleteData(${i})" class="delete">Delete</a></td>
+                    <td ><a onclick="updateData(${i})" class="update">Update</a></td>
+
                 </tr>`;
 
     }
@@ -50,6 +65,17 @@ function displayData(){
 function clearData(){
     siteName.value = "";
     siteLink.value ="";
+}
+
+
+//update function
+function updateData(index){
+    siteName.value=allBookmarks[index].name,
+    siteLink.value=allBookmarks[index].link,
+    temp=index;
+    mood = "Update"
+    submit.innerText = mood
+
 }
 
 //delete data
