@@ -1,6 +1,8 @@
 var submit = document.getElementById("submit");
 var siteName = document.getElementById("siteName")
 var siteLink = document.getElementById("siteLink")
+var searchInput = document.getElementById("siteSearch");
+
 var allBookmarks;
 var temp;
 var mood = "Submit";
@@ -46,10 +48,10 @@ function displayData(){
     var table="";
     for(var i=0; i<allBookmarks.length; i++){
         table+=`<tr>
-                    <td class="ps-3 fs-4"><i class=" text-warning pe-3 fs-6 fa-solid fa-book-bookmark"></i>${allBookmarks[i].name}</td>
+                    <td class="ps-3 "><i class=" text-warning pe-3 fs-6 fa-solid fa-book-bookmark"></i>${allBookmarks[i].name}</td>
                     <td >
                         <a class="visit" target="_blank" href="${allBookmarks[i].link}">
-                        Click Me</a>
+                        Visit</a>
                     </td>
                     <td ><a onclick="deleteData(${i})" class="delete">Delete</a></td>
                     <td ><a onclick="updateData(${i})" class="update">Update</a></td>
@@ -85,3 +87,14 @@ function deleteData(index){
     displayData()
 
 }
+
+//search data
+searchInput.addEventListener("input", function(){
+    var searchKey = searchInput.value;
+    console.log(searchKey);
+    for(var i =0; i<allBookmarks.length; i++){
+        if(allBookmarks[i].name.toLowerCase().includes(searchKey) == true){
+            console.log(i)
+        }
+    }
+})

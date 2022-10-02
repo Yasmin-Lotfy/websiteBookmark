@@ -36,3 +36,11 @@ table tbody a:hover{
 tr{
     line-height:50px
 }
+@media screen and (max-width:769px) {
+    html{
+        font-size: 13px;
+    }
+    table{
+        width: 50%;
+    }
+}
